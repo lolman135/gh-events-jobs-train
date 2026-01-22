@@ -1,0 +1,48 @@
+name: demo.yaml
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v6
+
+      - name: Set Up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Run Test
+        run: ./api/gradlew -p api clean test
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v6
+
+      - name: Set Up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Build project
+        run: ./api/gradlew -p api clean build -x test
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload Code
+        run: echo "uploading code"
+
+      - name: Mock Deploy Code
+        run: |
+          echo 'Simulating deploy into external host provider for training CI/CD using GitHub Actions'
+          for i in $(seq 10 10 100); do echo $i%; done
+          echo 'Mock deploy is done'
