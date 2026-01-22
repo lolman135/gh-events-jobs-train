@@ -55,8 +55,13 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Upload Code
-        run: echo "uploading code"
+      - name: Download Artifacts
+        uses: actions/download-artifact@v6
+        with:
+          name: dist-files
+
+      - name: Log Files Containing Checkup
+        run: ls -R
 
       - name: Mock Deploy Code
         run: |
