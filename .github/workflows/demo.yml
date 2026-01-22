@@ -17,6 +17,9 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
+      - name: Set Up Gradle
+        uses: gradle/actions/setup-gradle@v5
+
       - name: Run Test
         run: ./api/gradlew -p api clean test
 
@@ -31,6 +34,9 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
+
+      - name: Set Up Gradle
+        uses: gradle/actions/setup-gradle@v5
 
       - name: Build project
         run: ./api/gradlew -p api clean build -x test
