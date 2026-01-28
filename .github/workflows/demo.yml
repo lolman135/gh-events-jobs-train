@@ -48,7 +48,6 @@ jobs:
           name: dist-files
           path: |
             api/build/libs
-            api/build/test-results
             api/build/reports
 
   deploy:
@@ -65,6 +64,6 @@ jobs:
 
       - name: Mock Deploy Code
         run: |
-          echo 'Simulating deploy into external host provider for training CI/CD using GitHub Actions'
+          echo 'Simulating deploy into an external host provider for training CI/CD using GitHub Actions'
           for i in $(seq 10 10 100); do echo $i%; done
           echo 'Mock deploy is done'
