@@ -46,7 +46,7 @@ jobs:
 
       - name: Publish JAR file
         id: publish
-        run: find api/build/lisbs/*SNAPSHOT.jar -type f -execdir echo 'jar-file={}' >> $GITHUB_OUTPUT ';'
+        run: find api/build/libs/*SNAPSHOT.jar -type f -execdir echo 'jar-file={}' >> $GITHUB_OUTPUT ';'
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v6
